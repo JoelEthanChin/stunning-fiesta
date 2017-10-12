@@ -1,5 +1,5 @@
-import tkinter
+import Tkinter as TK
 
-top = tkinter.Tk()
+top = TK.Tk()
 
 top.mainloop()
