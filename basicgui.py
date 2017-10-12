@@ -1,5 +1,12 @@
-import Tkinter as TK
+from Tkinter import *
 
-top = TK.Tk()
+window = Tk()
+window.geometry("1280x720")
+window.title("Smart Clock")
 
-top.mainloop()
+t = Text(window)
+t.insert(INSERT, "Hello")
+t.insert(END, "Bye Bye.....")
+t.pack(side = LEFT)
+
+window.mainloop()
