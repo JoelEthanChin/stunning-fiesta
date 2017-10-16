@@ -28,6 +28,7 @@ weath2.insert(INSERT, "\n" * 3 + "weather Info")
 weath2.tag_configure("center", justify='center')
 weath2.tag_add("center", 0.0, "end")
 weath2.grid(row=720, column=1280)
+# Hello guys
 
 
 
