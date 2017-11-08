@@ -5,7 +5,7 @@
 # description varchar(45), PRIMARY KEY(id));
 
 # to add entries into database
-# 1)INSERT INTO databasename(description) VALUES ("whatever you want to enter")
+# 1)INSERT INTO databasename(description) VALUES ("whatever you want to enter");
 
 import MySQLdb
 
