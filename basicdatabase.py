@@ -4,15 +4,22 @@
 # 3) CREATE TABLE IF NOT EXISTS tablename(id int(11) NOT NULL AUTO_INCREMENT,
 # description varchar(45), PRIMARY KEY(id));
 
-# to add entries into database
+# to add entries into database from terminal
 # 1)INSERT INTO databasename(description) VALUES ("whatever you want to enter");
+
+# to add entries into database from python
+# 1) try:
+#         cursor.execute("""INSERT INTO tablename VALUES (%s,%s)""", (188,90))
+#         db.commit()
+#     except:
+#         db.rollback()
 
 import MySQLdb
 
 db = MySQLdb.connect(host = "localhost", #your host
                      user="root",        #username
                      passwd="root",      #password
-                     db = "pythonstop")  #name of the database
+                     db = "")  #name of the database
 
 #create a Cursor object to execute query
 cur = db.cursor()
