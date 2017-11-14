@@ -18,14 +18,14 @@ import MySQLdb
 
 db = MySQLdb.connect(host = "localhost", #your host
                      user="root",        #username
-                     passwd="root",      #password
-                     db = "")  #name of the database
+                     passwd="abcd",      #password
+                     db = "sysc3010")  #name of the database
 
 #create a Cursor object to execute query
 cur = db.cursor()
 
 #select data from table using SQL query
-cur.execute("SELECT * FROM examples")
+cur.execute("SELECT * FROM alarm")
 
 #print the first and second column
 for row in cur.fetchall() :
