@@ -13,3 +13,9 @@ def toSend(info):
 def sendHigh():
 
     ser.write("1")
+
+def main():
+
+    sendHigh()
+
+main()
