@@ -16,5 +16,6 @@ def sendHigh():
 
 def main():
 
-    sendHigh
-    
+    sendHigh()
+
+main()
