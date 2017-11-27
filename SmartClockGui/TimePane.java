@@ -9,9 +9,8 @@ import javax.swing.*;
 
 public class TimePane extends JPanel{
 	/**
-	 * 
+	 * @author Joel Chin 101001146
 	 */
-	private static final long serialVersionUID = 1L;
 	private String strTime;
 	private JLabel lblTime;
 	private JPanel pnlTime;

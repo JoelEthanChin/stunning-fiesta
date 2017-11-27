@@ -18,6 +18,9 @@ import java.io.*;
 
 
 public class SmartClockgui extends JFrame {
+	/**
+	 * @author Joel Chin 101001146
+	 */
 	private JPanel timePane, datePane, weatPane; //Panels for each component
 	private JPanel leftPane, rightPane;
 	private JPanel mainPane;
@@ -64,11 +67,12 @@ public class SmartClockgui extends JFrame {
 	public static void main(String args[]) throws UnknownHostException, IOException{
 		SmartClockgui test = new SmartClockgui();
 		
+		//initialize ports for recieving and sending
 		int portR = Integer.parseInt(args[0]);
 		int portS = Integer.parseInt(args[1]);
 		
 		String city, country;
-		try{
+		try{//try block to get country and city information
 			
 			Socket sr = new Socket("10.0.0.1", portR);
 			
@@ -81,12 +85,6 @@ public class SmartClockgui extends JFrame {
 		catch (IOException e){
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		//city = first thing from receiver
-		//country = second thing from receiver
 		
 		
 	}

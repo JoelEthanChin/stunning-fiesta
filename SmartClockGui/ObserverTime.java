@@ -3,6 +3,9 @@ package database;
 import java.util.*;
 
 public class ObserverTime implements Observer{
+	/**
+	 * @author Joel Chin 101001146
+	 */
 	private Date curTime; //Current Time
 
 	@Override

@@ -3,6 +3,9 @@ package database;
 import java.util.*;
 
 public class ObservableTime extends Observable{
+	/**
+	 * @author Joel Chin 101001146
+	 */
 	private ObserverTime time;
 	private Date curDate;
 	

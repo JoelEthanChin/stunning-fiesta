@@ -9,6 +9,9 @@ import WeatherUtil.exceptions.*;
 import WeatherUtil.classes.WeatherDataServiceFactory.service;
 
 public class WeatherPane extends JPanel{
+	/**
+	 * @author Joel Chin 101001146
+	 */
 	private IWeatherDataService weatherConnection;
 	private WeatherData data;
 	private JLabel lblClouds;
