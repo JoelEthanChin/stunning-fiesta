@@ -3,7 +3,6 @@
 #The database will store alarms dictated from the user via an android app to control an alarm clock running on a RPi
 
 import MySQLdb, urllib, sys, socket, time
-from flask import Flask
 
 def __init__(self):
 #This method connects the current db to itself to confirm initialization
@@ -29,21 +28,27 @@ def __del__(self):
 #This method closes the current db
     self.connection.close()
 
+def retCountryCity(weatInfo):
+    return weatInfo.split(".")
+
+def retAlarm(alrmInfo):
+    return alrmInfo.split(".")
+
 def main():
+    delim = '.'
     #create db access
 
     # db = MySQLdb.connect(host = "localhost", user = "root", passwd ="", db = "sysc3010")
     #create socket access
     #ss socket to send information
-    # ss = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    # portS = int(sys.argv[1])
-    # server_addressS = ('localhost', portS)
-    # ss.bind(server_addressS)
+    ss = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    portS = int(sys.argv[1])
+    server_addressS = ('localhost', portS)
     #sr socket to recieve information
-    # sr = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    # portR = int(sys.argv[2])
-    # server_addressR = ('localhost', portR)
-    # s.bind(server_addressR)
+    sr = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    portR = int(sys.argv[2])
+    server_addressR = ('localhost', portR)
+    s.bind(server_addressR)
     #check if the db is properly initialized
     # __init__(db)
     #cur is a cursor to execute selected queries
@@ -56,10 +61,7 @@ def main():
     #     resultSend = webDataS.read().decode('utf-8')
     #     ss.sendto(resultSend.encode('utf-8'), server_address)
 
-    #figure out how to recieve information from an android app
-    #database class complete
-
-    r = request.get()
-
+    country, city = retCountryCity(ss.recvfrom(2048))
+    alarm, isPM = retAlarm(ss.recvfrom(2048))
 
 main()
