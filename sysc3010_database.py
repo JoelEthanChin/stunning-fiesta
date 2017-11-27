@@ -35,20 +35,25 @@ def retAlarm(alrmInfo):
     return alrmInfo.split(".")
 
 def main():
+
     delim = '.'
     #create db access
 
     # db = MySQLdb.connect(host = "localhost", user = "root", passwd ="", db = "sysc3010")
+
     #create socket access
+
     #ss socket to send information
     ss = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    portS = int(sys.argv[1])
+    portS = int(sys.argv[1]) #Specify port # during execution
     server_addressS = ('localhost', portS)
+
     #sr socket to recieve information
     sr = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    portR = int(sys.argv[2])
+    portR = int(sys.argv[2]) #Specify port # during execution
     server_addressR = ('localhost', portR)
-    s.bind(server_addressR)
+    sr.bind(server_addressR)
+
     #check if the db is properly initialized
     # __init__(db)
     #cur is a cursor to execute selected queries
@@ -61,7 +66,14 @@ def main():
     #     resultSend = webDataS.read().decode('utf-8')
     #     ss.sendto(resultSend.encode('utf-8'), server_address)
 
-    country, city = retCountryCity(ss.recvfrom(2048))
-    alarm, isPM = retAlarm(ss.recvfrom(2048))
+    #country and city are used to store the country and city recieved
+    #from the Android app
+    country, city = retCountryCity(sr.recvfrom(2048))
+
+    #alarm and isPM are used to store the alarm time and if the time
+    #is AM or PM
+    alarm, isPM = retAlarm(sr.recvfrom(2048))
+
+
 
 main()
