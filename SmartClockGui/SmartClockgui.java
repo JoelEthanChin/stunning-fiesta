@@ -1,17 +1,11 @@
 package database;
-import java.net.Socket;
 import javax.swing.*;
-
-import WeatherUtil.classes.IWeatherDataService;
-import WeatherUtil.classes.WeatherDataServiceFactory;
-import WeatherUtil.classes.WeatherDataServiceFactory.service;
-
-
-import java.awt.FlowLayout;
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.*;
+import java.io.*;
 
 //import test1;
 /*This class will control all interaction
@@ -21,6 +15,8 @@ import java.net.*;
  * create. It will later be broken down 
  * into MVC
  */
+
+
 public class SmartClockgui extends JFrame {
 	private JPanel timePane, datePane, weatPane; //Panels for each component
 	private JPanel leftPane, rightPane;
@@ -28,6 +24,7 @@ public class SmartClockgui extends JFrame {
 	private WeatherPane weather;
 	private DatePane dateInfo;
 	private TimePane timeInfo;
+	private final int PACKETSIZE = 100;
 	
 	public SmartClockgui(){
 		
@@ -64,14 +61,30 @@ public class SmartClockgui extends JFrame {
 		
 	}
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws UnknownHostException, IOException{
 		SmartClockgui test = new SmartClockgui();
-		/*
-		 * enter UDP receiver stuff here so WeatherPane constructor 
-		 * can be completed
-		 */
-		//Socket reciever = new Socket(/*enter IP address*/, /*enter port*/);
+		
+		int portR = Integer.parseInt(args[0]);
+		int portS = Integer.parseInt(args[1]);
+		
 		String city, country;
+		try{
+			
+			Socket sr = new Socket("10.0.0.1", portR);
+			
+			BufferedReader input = new BufferedReader(new InputStreamReader(sr.getInputStream()));
+			
+			country = input.readLine();
+			city = input.readLine();
+			
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 		//city = first thing from receiver
 		//country = second thing from receiver
 		

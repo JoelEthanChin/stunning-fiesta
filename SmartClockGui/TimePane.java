@@ -8,12 +8,15 @@ import javax.swing.*;
 
 
 public class TimePane extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String strTime;
 	private JLabel lblTime;
 	private JPanel pnlTime;
 	private Calendar calTime;
 	private Thread thrTime;
-	
 	
 	public TimePane(String timeZone){
 		super();
@@ -23,10 +26,11 @@ public class TimePane extends JPanel{
 		calTime.setTimeZone(TimeZone.getTimeZone(timeZone));
 		
 		//create Thread Object to continuously retrieve time
-		thrTime = new Thread();
-		
+//		thrTime = new Thread();
+//		thrTime.run();
 		//Displays Time
-		lblTime = new JLabel(this.repeatTime());
+//		this.update((Observer)this, (Object)this);
+		lblTime = new JLabel(this.getStrTime());
 		lblTime.setFont(new Font("American Typewriter", Font.PLAIN, 120));
 		pnlTime = new JPanel();
 		pnlTime.add(lblTime, BorderLayout.CENTER);
@@ -41,6 +45,23 @@ public class TimePane extends JPanel{
 		}
 		
 	}
+
+	public String getStrTime() {
+		return strTime;
+	}
+
+	public void setStrTime(String strTime) {
+		this.strTime = strTime;
+	}
+
+	public Calendar getCalTime() {
+		return calTime;
+	}
+
+	public void setCalTime(Calendar calTime) {
+		this.calTime = calTime;
+	}
+	
 	
 
 }

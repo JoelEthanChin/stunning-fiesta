@@ -29,10 +29,10 @@ def __del__(self):
     self.connection.close()
 
 def retCountryCity(weatInfo):
-    return weatInfo.split(".")
+    return weatInfo[1:-1].split(delim)
 
 def retAlarm(alrmInfo):
-    return alrmInfo.split(".")
+    return alrmInfo[1:-1].split(delim)
 
 def main():
 
@@ -65,15 +65,17 @@ def main():
     #     webDataS = urlopen(row[1])
     #     resultSend = webDataS.read().decode('utf-8')
     #     ss.sendto(resultSend.encode('utf-8'), server_address)
-
+    while not len(city and country):
     #country and city are used to store the country and city recieved
     #from the Android app
-    country, city = retCountryCity(sr.recvfrom(2048))
+        country, city = retCountryCity(sr.recvfrom(2048))
 
+    while not len(alarm):
     #alarm and isPM are used to store the alarm time and if the time
     #is AM or PM
-    alarm, isPM = retAlarm(sr.recvfrom(2048))
+        alarm, isPM = retAlarm(sr.recvfrom(2048))
 
-
+    ss.sendto(country.encode('utf-8'), server_addressS)
+    ss.sendto(city.encode('utf-8'), server_addressS)
 
 main()

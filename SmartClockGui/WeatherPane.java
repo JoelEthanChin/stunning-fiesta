@@ -14,6 +14,7 @@ public class WeatherPane extends JPanel{
 	private JLabel lblClouds;
 	private JLabel lblDirection;
 	private JLabel lblHumidity;
+	private JLabel lblLastUpdate;
 	private JLabel lblPrecipitation;
 	private JLabel lblPressure;
 	private JLabel lblSunrise;
@@ -23,16 +24,18 @@ public class WeatherPane extends JPanel{
 	private JPanel pnlClouds;
 	private JPanel pnlDirection;
 	private JPanel pnlHumidity;
+	private JPanel pnlLastUpdate;
 	private JPanel pnlPrecipitation;
 	private JPanel pnlPressure;
 	private JPanel pnlSunrise;
 	private JPanel pnlSunset;
 	private JPanel pnlTemp;
-	private JPanel pnlWeather;
+	private JPanel pnlWeather; 
 	private JPanel pnlWind;
 	private String strClouds;
 	private String strDirection;
 	private String strHumidity;
+	private String strLastUpdate;
 	private String strPrecipitation;
 	private String strPressure;
 	private String strSunrise;
@@ -61,7 +64,7 @@ public class WeatherPane extends JPanel{
 			//Displays Clouds
 			strClouds =  data.getClouds().getValue();
 			lblClouds = new JLabel(strClouds);
-			lblClouds.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblClouds.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlClouds = new JPanel();
 			pnlClouds.add(lblClouds, BorderLayout.CENTER);
 			pnlWeather.add(pnlClouds);
@@ -69,7 +72,7 @@ public class WeatherPane extends JPanel{
 			//Displays Humidity
 			strHumidity = data.getHumidity().getValue() + " " + data.getHumidity().getUnit();
 			lblHumidity = new JLabel(strHumidity);
-			lblHumidity.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblHumidity.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlHumidity = new JPanel();
 			pnlHumidity.add(lblHumidity, BorderLayout.CENTER);
 			pnlWeather.add(pnlHumidity);
@@ -77,7 +80,7 @@ public class WeatherPane extends JPanel{
 			//Displays Precipitation
 			strPrecipitation = data.getPrecipitation().getValue() + " " + data.getPrecipitation().getMode();
 			lblPrecipitation = new JLabel(strPrecipitation);
-			lblPrecipitation.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblPrecipitation.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlPrecipitation = new JPanel();
 			pnlPrecipitation.add(lblPrecipitation);
 			pnlWeather.add(pnlPrecipitation);
@@ -85,7 +88,7 @@ public class WeatherPane extends JPanel{
 			//Displays Wind Speed
 			strWind = data.getWind().getSpeed().getName();
 			lblWind = new JLabel(strWind);
-			lblWind.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblWind.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlWind = new JPanel();
 			pnlWind.add(lblWind);
 			pnlWeather.add(pnlWind);
@@ -93,7 +96,7 @@ public class WeatherPane extends JPanel{
 			//Displays Wind Direction
 			strDirection = data.getWind().getDirection().getName();
 			lblDirection = new JLabel(strDirection);
-			lblDirection.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblDirection.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlDirection = new JPanel();
 			pnlDirection.add(lblDirection);
 			pnlWeather.add(pnlDirection);
@@ -101,7 +104,7 @@ public class WeatherPane extends JPanel{
 			//Displays Pressure
 			strPressure = data.getPressure().getValue() + " " + data.getPressure().getUnit();
 			lblPressure = new JLabel(strPressure);
-			lblPressure.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblPressure.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlPressure = new JPanel();
 			pnlPressure.add(lblPressure);
 			pnlWeather.add(pnlPressure);
@@ -109,7 +112,7 @@ public class WeatherPane extends JPanel{
 			//Displays Sunrise
 			strSunrise = data.getSun().getRise();
 			lblSunrise = new JLabel(strSunrise.substring(10, strSunrise.length()-3) + " AM");
-			lblSunrise.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblSunrise.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlSunrise = new JPanel();
 			pnlSunrise.add(lblSunrise);
 			pnlWeather.add(pnlSunrise);
@@ -117,10 +120,18 @@ public class WeatherPane extends JPanel{
 			//Displays Sunset
 			strSunset = data.getSun().getSet();
 			lblSunset = new JLabel(strSunset.substring(10, strSunset.length()-3) + " PM");
-			lblSunset.setFont(new Font("American Typewriter", Font.PLAIN, 65));
+			lblSunset.setFont(new Font("American Typewriter", Font.PLAIN, 55));
 			pnlSunset = new JPanel();
 			pnlSunset.add(lblSunset);
 			pnlWeather.add(pnlSunset);
+			
+			//Display the Last Update
+			strLastUpdate = data.getLastUpdate().getValue();
+			lblLastUpdate = new JLabel(strLastUpdate);
+			lblLastUpdate.setFont(new Font("American Typewriter", Font.PLAIN, 55));
+			pnlLastUpdate = new JPanel();
+			pnlLastUpdate.add(lblLastUpdate);
+			pnlWeather.add(pnlLastUpdate);
 			
 		}
 		catch (WeatherDataServiceException e)
