@@ -7,9 +7,12 @@ import javax.swing.*;
 
 public class SubPane extends JPanel{
 	
+	/**
+	 * @author Joel Chin 101001146
+	 */
 	private JLabel lblComponent;
-	public static final Font FONT = new Font("American Typewriter", Font.PLAIN, 60);
-	public static final Font TEMP_FONT = new Font("American Typewriter", Font.PLAIN, 120);
+	public static final Font FONT = new Font("American Typewriter", Font.PLAIN, 60); //Font for every weather element
+	public static final Font TEMP_FONT = new Font("American Typewriter", Font.PLAIN, 120); //Specific font to display temperature larger than others
 	
 	public SubPane(String pnlText, boolean isTemp){
 		

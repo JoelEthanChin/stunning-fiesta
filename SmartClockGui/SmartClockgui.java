@@ -83,12 +83,15 @@ public class SmartClockgui extends JFrame {
 			
 			SmartClockgui test = new SmartClockgui(country, city);
 			
+			sr.close();
+			
 		}
 		catch (IOException e){
 			
 			e.printStackTrace();
 			
 		}
+		
 		
 	}
 	
