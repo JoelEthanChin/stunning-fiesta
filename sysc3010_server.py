@@ -65,15 +65,22 @@ def main():
     #     webDataS = urlopen(row[1])
     #     resultSend = webDataS.read().decode('utf-8')
     #     ss.sendto(resultSend.encode('utf-8'), server_address)
-    while not len(city and country):
-    #country and city are used to store the country and city recieved
-    #from the Android app
-        country, city = retCountryCity(sr.recvfrom(2048))
+    try:
+        while not len(packet1):
+        #country and city are used to store the country and city recieved
+        #from the Android app
+            packet1 = retCountryCity(sr.recvfrom(2048))
+            if(packet1[0] == 'C'):
+                country, city = retCountryCity(sr.recvfrom(2048))
 
-    while not len(alarm):
-    #alarm and isPM are used to store the alarm time and if the time
-    #is AM or PM
-        alarm, isPM = retAlarm(sr.recvfrom(2048))
+
+        while not len(alarm):
+        #alarm and isPM are used to store the alarm time and if the time
+        #is AM or PM
+            alarm, isPM = retAlarm(sr.recvfrom(2048))
+    except IOError:#if ioerror is true, an error has occurred
+        ioerror = True
+        ss.sendto(ioerror.encode('utf-8'), server_addressS)
 
     ss.sendto(country.encode('utf-8'), server_addressS)
     ss.sendto(city.encode('utf-8'), server_addressS)
