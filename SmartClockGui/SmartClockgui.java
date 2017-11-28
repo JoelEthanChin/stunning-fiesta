@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.net.*;
 import java.io.*;
 
-//import test1;
+
 /*This class will control all interaction
  * with the database. This includes
  * retrieving the alarms and any other
@@ -29,7 +29,7 @@ public class SmartClockgui extends JFrame {
 	private TimePane timeInfo;
 	private final int PACKETSIZE = 100;
 	
-	public SmartClockgui(){
+	public SmartClockgui(String country, String city){
 		
 		super();
 		mainPane = new JPanel(new BorderLayout());
@@ -47,13 +47,13 @@ public class SmartClockgui extends JFrame {
 		mainPane.add(leftPane, BorderLayout.LINE_START);
 		mainPane.add(rightPane, BorderLayout.LINE_END);
 		
-		weather = new WeatherPane("Ottawa", "Canada", "Metric");
+		weather = new WeatherPane(city, country, "Metric");
 		weatPane.add(weather, BorderLayout.CENTER);
 		
-		dateInfo = new DatePane("Ottawa", "Canada", "Metric");
+		dateInfo = new DatePane(city, country, "Metric");
 		datePane.add(dateInfo, BorderLayout.NORTH);
 		
-		timeInfo = new TimePane("GMT-8:00");
+		timeInfo = new TimePane("UTC-05:00");
 		timePane.add(timeInfo, BorderLayout.SOUTH);
 		
 		add(mainPane);
@@ -65,9 +65,9 @@ public class SmartClockgui extends JFrame {
 	}
 	
 	public static void main(String args[]) throws UnknownHostException, IOException{
-		SmartClockgui test = new SmartClockgui();
 		
-		//initialize ports for recieving and sending
+		
+		//initialize ports for receiving and sending
 		int portR = Integer.parseInt(args[0]);
 		int portS = Integer.parseInt(args[1]);
 		
@@ -81,11 +81,14 @@ public class SmartClockgui extends JFrame {
 			country = input.readLine();
 			city = input.readLine();
 			
+			SmartClockgui test = new SmartClockgui(country, city);
+			
 		}
 		catch (IOException e){
+			
 			e.printStackTrace();
+			
 		}
-		
 		
 	}
 	

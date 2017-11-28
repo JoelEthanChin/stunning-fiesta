@@ -15,7 +15,7 @@ public class TimePane extends JPanel{
 	private JLabel lblTime;
 	private JPanel pnlTime;
 	private Calendar calTime;
-	private Thread thrTime;
+	//private Thread thrTime;
 	
 	public TimePane(String timeZone){
 		super();
@@ -29,7 +29,7 @@ public class TimePane extends JPanel{
 //		thrTime.run();
 		//Displays Time
 //		this.update((Observer)this, (Object)this);
-		lblTime = new JLabel(this.getStrTime());
+		lblTime = new JLabel(calTime.getTime().toString().substring(11, 16));
 		lblTime.setFont(new Font("American Typewriter", Font.PLAIN, 120));
 		pnlTime = new JPanel();
 		pnlTime.add(lblTime, BorderLayout.CENTER);
