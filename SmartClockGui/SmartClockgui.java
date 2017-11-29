@@ -21,12 +21,11 @@ public class SmartClockgui extends JFrame {
 	/**
 	 * @author Joel Chin 101001146
 	 */
-	private JPanel timePane, datePane, weatPane; //Panels for each component
+	private JPanel dateTimePane, weatPane; //Panels for each component
 	private JPanel leftPane, rightPane;
 	private JPanel mainPane;
 	private WeatherPane weather;
-	private DatePane dateInfo;
-	private TimePane timeInfo;
+	private DateTimePane dateTimeInfo;
 	private final int PACKETSIZE = 100;
 	
 	public SmartClockgui(String country, String city){
@@ -35,12 +34,10 @@ public class SmartClockgui extends JFrame {
 		mainPane = new JPanel(new BorderLayout());
 		leftPane = new JPanel(new BorderLayout());
 		rightPane = new JPanel(new BorderLayout());
-		timePane = new JPanel();
-		datePane = new JPanel();
+		dateTimePane = new JPanel();
 		weatPane = new JPanel();
 		
-		leftPane.add(timePane, BorderLayout.PAGE_START);
-		leftPane.add(datePane, BorderLayout.PAGE_END);
+		leftPane.add(dateTimePane, BorderLayout.PAGE_START);
 		
 		rightPane.add(weatPane, BorderLayout.CENTER);
 		
@@ -50,11 +47,8 @@ public class SmartClockgui extends JFrame {
 		weather = new WeatherPane(city, country, "Metric");
 		weatPane.add(weather, BorderLayout.CENTER);
 		
-		dateInfo = new DatePane(city, country, "Metric");
-		datePane.add(dateInfo, BorderLayout.NORTH);
-		
-		timeInfo = new TimePane("UTC-05:00");
-		timePane.add(timeInfo, BorderLayout.SOUTH);
+		dateTimeInfo = new DateTimePane(country, city);
+		dateTimePane.add(dateTimeInfo, BorderLayout.CENTER);
 		
 		add(mainPane);
 		pack();
@@ -67,30 +61,30 @@ public class SmartClockgui extends JFrame {
 	public static void main(String args[]) throws UnknownHostException, IOException{
 		
 		
-		//initialize ports for receiving and sending
+		/*//initialize ports for receiving and sending
 		int portR = Integer.parseInt(args[0]);
 		int portS = Integer.parseInt(args[1]);
-		
+		*/
 		String city, country;
-		try{//try block to get country and city information
+		//try{//try block to get country and city information
 			
-			Socket sr = new Socket("10.0.0.1", portR);
+			/*Socket sr = new Socket("10.0.0.1", portR);
 			
 			BufferedReader input = new BufferedReader(new InputStreamReader(sr.getInputStream()));
 			
 			country = input.readLine();
-			city = input.readLine();
+			city = input.readLine();*/
 			
-			SmartClockgui test = new SmartClockgui(country, city);
+			SmartClockgui test = new SmartClockgui("Canada", "Ottawa");
 			
-			sr.close();
+			//sr.close();
 			
-		}
-		catch (IOException e){
+		//}
+		/*catch (IOException e){
 			
 			e.printStackTrace();
 			
-		}
+		}*/
 		
 		
 	}

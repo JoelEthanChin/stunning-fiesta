@@ -42,7 +42,7 @@ public class WeatherPane extends JPanel{
 			this.add(pnlWeather, BorderLayout.SOUTH);
 			
 			//Displays Clouds
-			clouds = new SubPane(data.getClouds().getValue(), false);
+			clouds = new SubPane(data.getClouds().getValue());
 			pnlWeather.add(clouds);
 			
 			//Displays Humidity
@@ -54,23 +54,23 @@ public class WeatherPane extends JPanel{
 			pnlWeather.add(precipitation);
 			
 			//Displays Wind Speed
-			wind = new SubPane(data.getWind().getSpeed().getName(), false);
+			wind = new SubPane(data.getWind().getSpeed().getName());
 			pnlWeather.add(wind);
 			
 			//Displays Wind Direction
-			direction = new SubPane(data.getWind().getDirection().getName(), false);
+			direction = new SubPane(data.getWind().getDirection().getName());
 			pnlWeather.add(direction);
 			
 			//Displays Pressure
-			pressure = new SubPane(data.getPressure().getValue() + " " + data.getPressure().getUnit(), false);
+			pressure = new SubPane(data.getPressure().getValue() + " " + data.getPressure().getUnit());
 			pnlWeather.add(pressure);
 			
 			//Displays Sunrise
-			sunrise = new SubPane(data.getSun().getRise().substring(10, data.getSun().getRise().length()) + " AM", false);
+			sunrise = new SubPane(data.getSun().getRise().substring(10, data.getSun().getRise().length()) + " AM");
 			pnlWeather.add(sunrise);
 			
 			//Displays Sunset
-			sunset = new SubPane(data.getSun().getSet().substring(10, data.getSun().getSet().length()-3) + " PM", false);
+			sunset = new SubPane(data.getSun().getSet().substring(10, data.getSun().getSet().length()-3) + " PM");
 			pnlWeather.add(sunset);
 			
 			
