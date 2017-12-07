@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=pnlText\ isTemp
+comment0.target=SubPane(java.lang.String,\ boolean)
+comment1.params=pnlText
+comment1.target=SubPane(java.lang.String)
+comment2.params=
+comment2.target=javax.swing.JLabel\ getLblComponent()
+comment3.params=l
+comment3.target=void\ setLblComponent(javax.swing.JLabel)
+comment4.params=s
+comment4.target=void\ updateText(java.lang.String)
+numComments=5
