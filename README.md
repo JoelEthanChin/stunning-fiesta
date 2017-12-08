@@ -22,5 +22,10 @@ The only potential problem could be the package, but otherwise, everything shoul
    This runs the Gui and server. Once the server receives data from the Android
    app, the Gui will appear.
 
-6) to start the Android app, open final-folder/AndroidApp/src/main/java/e/hoda/digi_smartclock/MainActivity.java
-   to start the main activity
+6) To start the Android app, unzip the SYSC3010.zip file and open it in Android Studio
+   stunning-fiesta/final-folder/AndroidApp/src/main/java/e/hoda/digi_smartclock/MainActivity.java
+   contains the main activity java file.
+
+7) Once every program is running, as soon as you enter the country and city, the Gui will launch.
+   When you send an alarm time, wait for the alarm to trigger.
+   When sending the alarm time, if the time is 12:00PM, the alarm time should be 00:00 PM. 
