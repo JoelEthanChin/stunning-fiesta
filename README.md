@@ -7,15 +7,20 @@ Not all files are necessary to run the SmartClock, but were in some way used in 
 All java files were created using BlueJay IDE, but were edited on Eclipse for final touch ups.
 The only potential problem could be the package, but otherwise, everything should work.
 
-1) Download the folder "final-project"
+1) Download the repository stunning-fiesta.
 
-2) On the Arduino, run final-folder/Arduino_stuff/buzzer_test/buzzer_test.ino
+2) All relavent files are found in the final-folder folder.
+
+3) On the Arduino, run final-folder/Arduino_stuff/buzzer_test/buzzer_test.ino
    This should start the buzzer every time you push the button. If this does not
    work, double check Arduino wiring before continuing.
 
-3) Run final-folder/Arduino_stuff/Arduino_Clock/Arduino_Clock.ino
+ 4) Run final-folder/Arduino_stuff/SensorInterface/SensorInterface.ino
    This runs the main Arduino program used throughout the program
 
-4) Run final-folder/Gui/DigitalClock.java and final-folder/server/shell.java
+5) Run final-folder/Gui/DigitalClock.java and final-folder/server/shell.java
    This runs the Gui and server. Once the server receives data from the Android
-   app, the Gui will appear. 
+   app, the Gui will appear.
+
+6) to start the Android app, open final-folder/AndroidApp/src/main/java/e/hoda/digi_smartclock/MainActivity.java
+   to start the main activity
